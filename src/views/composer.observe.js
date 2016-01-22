@@ -396,6 +396,8 @@
     if (keyCode === wysihtml5.SPACE_KEY || keyCode === wysihtml5.ENTER_KEY) {
       this.parent.fire("newword:composer");
     }
+    // Send keyup event
+    this.parent.fire(event.type, event).fire(event.type + ":composer", event);
   };
 
   var handleMouseDown = function(event) {

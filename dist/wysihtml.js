@@ -4390,8 +4390,7 @@ wysihtml5.polyfills(window, document);
     }
 
     return api;
-}, this);
-;/**
+}, this);;/**
  * Text range module for Rangy.
  * Text-based manipulation and searching of ranges and selections.
  *
@@ -17872,6 +17871,8 @@ wysihtml5.views.View = Base.extend(
     if (keyCode === wysihtml5.SPACE_KEY || keyCode === wysihtml5.ENTER_KEY) {
       this.parent.fire("newword:composer");
     }
+    // Send keyup event
+    this.parent.fire(event.type, event).fire(event.type + ":composer", event);
   };
 
   var handleMouseDown = function(event) {
@@ -17924,12 +17925,12 @@ wysihtml5.views.View = Base.extend(
   };
 
   var handleDrop = function(event) {
-    if (!browser.canSelectImagesInContentEditable()) {
-      // TODO: if I knew how to get dropped elements list from event I could limit it to only IMG element case
-      setTimeout((function() {
-        this.selection.getSelection().removeAllRanges();
-      }).bind(this), 0);
-    }
+    // if (!browser.canSelectImagesInContentEditable()) {
+    //   // TODO: if I knew how to get dropped elements list from event I could limit it to only IMG element case
+    //   setTimeout((function() {
+    //     this.selection.getSelection().removeAllRanges();
+    //   }).bind(this), 0);
+    // }
   };
 
   var handleKeyDown = function(event) {
