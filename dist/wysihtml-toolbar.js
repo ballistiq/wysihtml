@@ -18462,6 +18462,10 @@ wysihtml5.views.View = Base.extend(
     },
 
     getValue: function(parse, clearInternals) {
+      // Check which editor to get value from
+      if (this.currentView == "source") {
+        return this.sourceView.textarea.value;
+      }
       return this.currentView.getValue(parse, clearInternals);
     },
 
