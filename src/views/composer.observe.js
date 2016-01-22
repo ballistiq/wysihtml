@@ -448,12 +448,12 @@
   };
 
   var handleDrop = function(event) {
-    if (!browser.canSelectImagesInContentEditable()) {
-      // TODO: if I knew how to get dropped elements list from event I could limit it to only IMG element case
-      setTimeout((function() {
-        this.selection.getSelection().removeAllRanges();
-      }).bind(this), 0);
-    }
+    // if (!browser.canSelectImagesInContentEditable()) {
+    //   // TODO: if I knew how to get dropped elements list from event I could limit it to only IMG element case
+    //   setTimeout((function() {
+    //     this.selection.getSelection().removeAllRanges();
+    //   }).bind(this), 0);
+    // }
   };
 
   var handleKeyDown = function(event) {
