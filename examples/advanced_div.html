@@ -449,7 +449,7 @@
 
 <script src="jquery.1.10.2.js" type="text/javascript" charset="utf-8"></script>
 
-<script src="../dist/wysihtml-toolbar.min.js"></script>
+<script src="../dist/wysihtml-toolbar.js"></script>
 <script src="../parser_rules/advanced_and_extended.js"></script>
 
 
@@ -465,8 +465,24 @@ var editors = [];
     });
     editors.push(e);
     
-    e.on("showSource", function() {
-      alert(e.getValue(true));
+    e.on("change_view", function() {
+      console.log("Change view called");
+    });
+
+    e.on("keyup", function(e) {
+      console.log("Keyup called");
+    });
+
+    e.on("change", function(e) {
+      console.log("Change called")
+    });
+
+    e.on("focus", function(e) {
+      console.log("Focus called")
+    });
+
+    e.on("blur", function(e) {
+      console.log("Blur called")
     });
     
   });
