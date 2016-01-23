@@ -18476,7 +18476,16 @@ wysihtml5.views.View = Base.extend(
         return this.clear();
       }
 
-      this.currentView.setValue(html, parse);
+      // Check which editor to set value
+      if (this.currentView == "source") {
+        this.sourceView.textarea.value = html;
+      } else {
+        this.currentView.setValue(html, parse);
+      }
+
+      var that = this;
+      setTimeout(function() { that.fire('change'); }, 0);
+
       return this;
     },
 
