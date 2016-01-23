@@ -168,6 +168,10 @@
       }
 
       this.currentView.setValue(html, parse);
+
+      var that = this;
+      setTimeout(function() { that.fire('change'); }, 0);
+
       return this;
     },
 
